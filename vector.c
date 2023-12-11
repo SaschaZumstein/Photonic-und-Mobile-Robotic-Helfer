@@ -15,7 +15,6 @@ Datum: 04.12.2023
 #include <string.h>
 #include <math.h>
 
-
 void norm(void);
 void cross(void);
 void dot(void);
