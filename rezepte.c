@@ -29,7 +29,7 @@ void rezepte()
 	{
 		// Abfrage ob die Werte fuer die jeweiligen Faecher angezeigt werden sollen.
 		printf("\nWenn du die Zahlen fuer die Rezepte sehen willst, dann schreibe Ja oder ja:\n");
-		scanf("%s" ,&regRez);
+		scanf("%s", regRez);
 		fflush(stdin);
 		
 		// Hier wird ueberprueft, ob die Werte fuer die Faecher angezeigt werden sollen und anschliessend geprintet.
@@ -55,7 +55,7 @@ void rezepte()
 		}
 		
 		printf("Wenn du ein weiteres Rezept sehen willst, dann schreibe ja, dann schreibe ja oder Ja.\n");
-		scanf("%s" ,&weitereRechnungRez);
+		scanf("%s", weitereRechnungRez);
 		fflush(stdin);
 		
 		system("cls");
