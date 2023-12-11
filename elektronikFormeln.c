@@ -30,6 +30,7 @@ Datum: 4.12.2023
     __UNIT__IMPL(Q, charge, coulomb) \
     __UNIT__IMPL(T, period_durration, seconds) \
     __UNIT__IMPL(f, frequenzy, hertz) \
+    __UNIT__IMPL(W, Work, watt_seconds) \
 
 // ADD FORMULAS HERE, keywords: PLUS,MINUS,TIMES,DIVISION,POWER,ROOT,LOG
 #define __DO__FORMULAS__IMPL \
@@ -38,7 +39,8 @@ Datum: 4.12.2023
     __FORMULA__IMPL(E, P, TIMES, t) \
     __FORMULA__IMPL(I, J, TIMES, A) \
     __FORMULA__IMPL(Q, I, TIMES, t) \
-    //__FORMULA__IMPL(T,)
+    __FORMULA__IMPL(T, one, DIVISION, f) \
+    __FORMULA__IMPL(W, P, TIMES, t) \
 
 // ADD CONSTANTS HERE
 #define __DO__CONST__IMPL \
