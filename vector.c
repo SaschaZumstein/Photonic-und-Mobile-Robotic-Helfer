@@ -1,11 +1,12 @@
-/* main.c
-Beschreibung: Kreuz- und Skalarprodukt
+/* vector.c
+Beschreibung: Kreuz- und Skalarprodukt sowie Betrag eines Vektors.
 Autor: Ramon Tarca, Ryoya Bauer
-Firma: FHGR
-Version: 1.0
-Datum: 04.12.2023
-Änderungen:
-1.0 04.12.2023 Erste Version
+Firma: FHGR 
+Version: 1.0 
+Datum: 04.12.2023 
+Änderungen: 
+1.0 04.12.2023 Erste Version 
+2.0 6.12.2023 Einfuegen der while-Schleife
 */
 
 #include <stdio.h>
@@ -20,60 +21,84 @@ void cross(void);
 void dot(void);
 void distance2D(void);
 void distance3D(void);
-
 float normInternal(int n, float *vector);
 float crossInternal(int n, float *vector1, float *vector2);
 float dotInternal(int n, float *vector1, float *vector2);
 
 void vector()
 {
-	int menue = 0;
-
-	printf("\n1 - Betrag eines Vektors in n\n");
-	printf("2 - Kreuzprodukt in 3D\n");
-	printf("3 - Skalarprodukt in n\n");
-	printf("4 - Abstand Punkt-Gerade in 2D\n");
-	printf("5 - Abstand Punkt-Gerade in 3D\n");
-	printf("Bitte wähle eine Operation:\n");
-
-	scanf("%i", &menue);
-
-	switch(menue)
+	char ja[3] = "ja";
+	char Ja[3] = "Ja";
+	char weitereRechnungVec[3] = "ja";
+	
+	while(strcmp (weitereRechnungVec, ja) == 0 || strcmp (weitereRechnungVec, Ja) == 0)
 	{
-		case 1 : norm(); break;
-		case 2 : cross(); break;
-		case 3 : dot(); break;
-		case 4 : distance2D(); break;
-		case 5 : distance3D(); break;
+		int menue = 0;
+			
+		printf("\n1 - Betrag eines Vektors in n\n");
+		printf("2 - Kreuzprodukt in 3D\n");
+		printf("3 - Skalarprodukt in n\n");
+		printf("4 - Abstand Punkt-Gerade in 2D\n");
+		printf("5 - Abstand Punkt-Gerade in 3D\n");
+		scanf("%i", &menue);
+		fflush(stdin);
+		
+		switch(menue)
+		{
+			case 1: 
+				norm(); 
+				break;
+			case 2: 
+				cross(); 
+				break;
+			case 3: 
+				dot();
+				break;
+			case 4: 
+				distance2D(); 
+				break;
+			case 5: 
+				distance3D(); 
+				break;
+			default:
+				printf("Der eingegebene Wert ist keinem Programm zugewiesen!\n\n");
+				return;
+		}
+		
+		printf("Willst du eine weitere Operation mit Vektoren durchfueren? Wenn ja, dann schreibe ja oder Ja.\n");
+		scanf("%s" ,&weitereRechnungVec);
+		fflush(stdin);
+		
+		system("cls");
 	}
-	return;
 }
 
 void norm(void)
 {
 	int n = 0;
-	printf("Bitte Dimension wählen:\n");
+	printf("\nBitte Dimension wählen:\n");
 	scanf("%i",&n);
+	fflush(stdin);
 	float vector1[n];
-
-	printf("Bitte den ersten Vektor abfüllen:\n");
-
+	
+	printf("\nBitte den Vektor abfüllen:\n");
+	
 	for(int i = 0; i < n; i++)
 	{
 		scanf("%f",&vector1[i]);
 		fflush(stdin);		// Buffer leeren um scanf() nochmals auszuführen
 	}
-
+		
 	float result = 0;
-
+	
 	for(int i = 0; i < n; i++)
 	{
 		result += vector1[i] * vector1[i];
 	}
-
+	
 	result = sqrtf(result);
-
-	printf("Der Betrag ist %f\n\n",result);
+	
+	printf("\nDer Betrag ist %f\n\n",result);
 	return;
 }
 
@@ -81,28 +106,28 @@ void cross(void)
 {
 	int n = 3;
 	float vector1[n], vector2[n];
-
-	printf("Bitte den ersten Vektor abfüllen:\n");
-
+	
+	printf("\nBitte den ersten Vektor abfüllen:\n");
+	
 	for(int i = 0; i < n; i++)
 	{
 		scanf("%f",&vector1[i]);
 		fflush(stdin);		// Buffer leeren um scanf() nochmals auszuführen
 	}
-
-	printf("\n\nBitte den zweiten Vektor abfüllen:\n");
-
+		
+	printf("\nBitte den zweiten Vektor abfüllen:\n");
+	
 	for(int i = 0; i < n; i++)
 	{
 		scanf("%f",&vector2[i]);
 		fflush(stdin);		// Buffer leeren um scanf() nochmals auszuführen
 	}
-
+	
 	float result[n];
-
+	
 	int count1 = 1;
 	int count2 = 2;
-
+	
 	for(int i = 0; i < n; i++)
 	{
 		result[i] = vector1[count1] * vector2[count2] - vector1[count2] * vector2[count1];
@@ -117,63 +142,68 @@ void cross(void)
 			count2 = 0;
 		}
 	}
-
-	printf("Der neue Vektor lautet:\n");
+	
+	printf("\nDer neue Vektor lautet:\n");
 	for(int i = 0; i < n; i++)
 	{
 		printf("%f\n",result[i]);
 	}
+	printf("\n");
 	return;
 }
 
 void dot(void)
 {
 	int n = 0;
-	printf("Bitte Dimension wählen:\n");
+	printf("\nBitte Dimension wählen:\n");
 	scanf("%i",&n);
+	fflush(stdin);
 	float vector1[n], vector2[n];
-
-	printf("Bitte den ersten Vektor abfüllen:\n");
-
+	
+	printf("\nBitte den ersten Vektor abfüllen:\n");
+	
 	for(int i = 0; i < n; i++)
 	{
 		scanf("%f",&vector1[i]);
 		fflush(stdin);		// Buffer leeren um scanf() nochmals auszuführen
 	}
-
-	printf("\n\nBitte den zweiten Vektor abfüllen:\n");
-
+		
+	printf("\nBitte den zweiten Vektor abfüllen:\n");
+	
 	for(int i = 0; i < n; i++)
 	{
 		scanf("%f",&vector2[i]);
 		fflush(stdin);		// Buffer leeren um scanf() nochmals auszuführen
 	}
-
+	
 	float result = 0;
-
+	
 	for(int i = 0; i < n; i++)
 	{
 		result += vector1[i] * vector2[i];
 	}
-
-	printf("Das Skalarprodukt ergibt %f\n\n",result);
+	
+	printf("\nDas Skalarprodukt ergibt %f\n\n",result);
 	return;
 }
 
-
-void tausche(float vector1[]) {
+void tausche(float vector1[]) 
+{
     float temp = vector1[0];
     vector1[0] = -vector1[1];
     vector1[1] = temp;
 }
 
-void distance2D(void) {
+void distance2D(void) 
+{
     int n = 2;
     float vector1[n], vector2[n], point[n];
     float dotrestult=0;
 
     printf("d=<P-S0, hut n>\nBitte die Gerade definieren (g):\n"); //Gerade
-    for (int i = 0; i < n; i++) {
+	
+    for (int i = 0; i < n; i++) 
+	{
         scanf("%f", &vector1[i]);
         fflush(stdin);
     }
@@ -231,13 +261,10 @@ void distance2D(void) {
     return;
 }
 
-
-
 void distance3D(void)
 {
 	printf("placeholder\n");
 }
-
 
 float normInternal(int n, float *vector1)
 {
@@ -251,7 +278,6 @@ float normInternal(int n, float *vector1)
 	result = sqrtf(result);
 	return result;
 }
-
 
 float crossInternal(int n, float *vector1, float *vector2) {
     float result[n];
@@ -272,8 +298,6 @@ float crossInternal(int n, float *vector1, float *vector2) {
     return result[n];
 }
 
-
-
 float dotInternal(int n, float *vector1, float *vector2)
 {
 	float result = 0;
@@ -285,5 +309,3 @@ float dotInternal(int n, float *vector1, float *vector2)
 
 	return result;
 }
-
-
