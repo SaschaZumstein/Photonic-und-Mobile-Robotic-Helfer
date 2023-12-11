@@ -30,15 +30,24 @@ Datum: 4.12.2023
     __UNIT__IMPL(Q, charge, coulomb) \
     __UNIT__IMPL(T, period_durration, seconds) \
     __UNIT__IMPL(f, frequenzy, hertz) \
+    __UNIT__IMPL(W, Work, watt_seconds) \
 
 // ADD FORMULAS HERE, keywords: PLUS,MINUS,TIMES,DIVISION,POWER,ROOT,LOG
 #define __DO__FORMULAS__IMPL \
-    __FORMULA__IMPL(U, R, TIMES, I) \
+    __FORMULA__IMPL(U, R, TIMES, two) \
     __FORMULA__IMPL(P, U, TIMES, I) \
     __FORMULA__IMPL(E, P, TIMES, t) \
     __FORMULA__IMPL(I, J, TIMES, A) \
     __FORMULA__IMPL(Q, I, TIMES, t) \
-    //__FORMULA__IMPL(T,)
+    __FORMULA__IMPL(T, one, DIVISION, f) \
+    __FORMULA__IMPL(W, P, TIMES, t) \
+
+// ADD CONSTANTS HERE
+#define __DO__CONST__IMPL \
+    __CONST__IMPL(one, 1.0) \
+    __CONST__IMPL(two, 2.0) \
+    __CONST__IMPL(pi, 3.14159265358979323846) \
+    __CONST__IMPL(e, 2.71828182845904523536) \
 
 
 // DO NOT EDIT BELOW THIS LINE
@@ -80,6 +89,7 @@ Datum: 4.12.2023
 // All operations types
 typedef enum {
     VARIABLE_RELATION,
+    CONSTANT_RELATION,
     #define __OPERATORS__IMPL(name, symbol, exec, inv_b, inv_c) \
         OPERATOR_##name,
 
@@ -112,6 +122,14 @@ Data data;
     __DO__UNITS__IMPL
 #undef __UNIT__IMPL
 
+// constants relations
+#define __CONST__IMPL(name, value) \
+    double CONST_##name = value; \
+    Relation UNIT_##name = {CONSTANT_RELATION, (Relation*)&CONST_##name, NULL, NULL};
+
+    __DO__CONST__IMPL
+#undef __CONST__IMPL
+
 da_typedef(Relation*, Relations);
 Relations RELATIONS = {0};
 
@@ -126,6 +144,11 @@ void print_relation(Relation* relation, bool parenthesis) {
             __DO__UNITS__IMPL
         #undef __UNIT__IMPL
 
+        return;
+    }
+
+    if (relation->type == CONSTANT_RELATION) {
+        printf("%lf", *(double*)relation->a);
         return;
     }
 
@@ -245,9 +268,14 @@ char* UNITS_TXT[] = {
 };
 
 double solve(Relation* relation) {
-    if (relation->type == VARIABLE_RELATION) {
+    if (relation->type == VARIABLE_RELATION || relation->type == CONSTANT_RELATION) {
         return *(double*)relation->a;
     }
+
+    if (*(double*)relation->a->a) {
+        return *(double*)relation->a->a;
+    }
+
 
     double b = solve(relation->b);
     double c = solve(relation->c);
