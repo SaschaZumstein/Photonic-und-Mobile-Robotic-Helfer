@@ -53,7 +53,7 @@ void geom(void)
 		}
 		
 		printf("Willst du eine weitere Rechnung in der geometrischen Optik durchfueren? Wenn ja, dann schreibe ja oder Ja.\n");
-		scanf("%s" ,&weitereRechnungGeom);
+		scanf("%s", weitereRechnungGeom);
 		fflush(stdin);
 		
 		formel = 0;

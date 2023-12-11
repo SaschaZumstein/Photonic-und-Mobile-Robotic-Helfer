@@ -27,7 +27,7 @@ void mechanik()
 	while(strcmp (weitereRechnungHang, ja) == 0 || strcmp (weitereRechnungHang, Ja) == 0)
 	{
 		printf("Willst du eine Rechunng aus der Mechanik ausführen? Wenn ja, dann schreibe ja oder Ja.\n");
-		scanf("%s" ,&weitereRechnungHang);
+		scanf("%s", weitereRechnungHang);
 		fflush(stdin);
 		
 		system("cls");

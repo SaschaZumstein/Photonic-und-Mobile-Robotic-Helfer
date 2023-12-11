@@ -83,7 +83,7 @@ int main(void)
 		
 		// Abfrage ob eine weitere Rechnung durchgefuert werden soll.
 		printf("Willst du eine weitere Rechnung durchfueren? Wenn ja, dann schreibe ja oder Ja.\n");
-		scanf("%s" ,&weitereRechnung);
+		scanf("%s", weitereRechnung);
 		fflush(stdin);
 		
 		system("cls");
