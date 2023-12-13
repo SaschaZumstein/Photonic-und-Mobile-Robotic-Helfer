@@ -112,7 +112,7 @@ int ohmschesGesetz(int schwierigkeit){
 	else if(schwierigkeit == 3){
 		printf("Ohmsches Gesetz mit Schwierigkeit 3\n");
 	}
-	return eingabeLoesung();
+	return (eingabeLoesung());
 }
 
 // Aufgaben für Kondensator
@@ -126,7 +126,7 @@ int kondensator(int schwierigkeit){
 	else if(schwierigkeit == 3){
 		printf("Kondensator mit Schwierigkeit 3\n");
 	}
-	return eingabeLoesung();
+	return (eingabeLoesung());
 }
 
 // Aufgaben für Spulen
@@ -140,7 +140,7 @@ int spule(int schwierigkeit){
 	else if(schwierigkeit == 3){
 		printf("Spule mit Schwierigkeit 3\n");
 	}
-	return eingabeLoesung();
+	return (eingabeLoesung());
 }
 
 // Aufgaben für Dioden
@@ -154,14 +154,14 @@ int diode(int schwierigkeit){
 	else if(schwierigkeit == 3){
 		printf("Diode mit Schwierigkeit 3\n");
 	}
-	return eingabeLoesung();
+	return (eingabeLoesung());
 }
 
 // Eingabe der Lösung
 int eingabeLoesung(){
 	int loesung = 0;
 	printf("Bitte gib die Lösung fuer die soeben gestellte Aufgabe ein: ");
-	scanf("%i" ,loesung);
+	scanf("%i" ,&loesung);
 	fflush(stdin);
 	return loesung;
 }
