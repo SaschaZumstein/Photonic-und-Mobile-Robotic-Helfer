@@ -221,7 +221,7 @@ float eingabeLoesung(){
 	
 	while(check == 0) {
 		printf("Bitte gib die Lösung fuer die soeben gestellte Aufgabe ein: ");
-		check = scanf("%i" ,&loesung);
+		check = scanf("%f" ,&loesung);
 		fflush(stdin);
 		if(check == 0){
 			printf("Die Loesung muss eine Zahl sein und kann kein Zeichen sein\n");
