@@ -22,11 +22,11 @@ Datum: 4.12.2023
 
 // Funktionsprototypen
 void eingabe(int *thema, int *schwierigkeit);
-int ohmschesGesetz(int *schwierigkeit, int *loesung);
-int kondensator(int *schwierigkeit, int *loesung);
-int spule(int *schwierigkeit, int *loesung);
-int diode(int *schwierigkeit, int *loesung);
-int eingabeLoesung();
+float ohmschesGesetz(int *schwierigkeit, float *loesung);
+float kondensator(int *schwierigkeit, float *loesung);
+float spule(int *schwierigkeit, float *loesung);
+float diode(int *schwierigkeit, float *loesung);
+float eingabeLoesung();
 
 // Hier steht das Hauptprogramm dieser Funktion
 void elektronikAufgaben()
@@ -36,8 +36,8 @@ void elektronikAufgaben()
 	int tryAgain = 0;
 	int thema = 0;
 	int schwierigkeit = 0;
-	int loesung = 0;
-	int musterloesung = 0;
+	float loesung = 0;
+	float musterloesung = 0;
 
 	// Konsole löschen
 	system("cls");
@@ -66,18 +66,18 @@ void elektronikAufgaben()
 
 			// Lösung korrekt
 			if(loesung == musterloesung){
-				printf("Bravo, die eingegebene Loesung %i ist korrekt\n", loesung);
+				printf("Bravo, die eingegebene Loesung %f ist korrekt\n", loesung);
 			}
 			// Loesung falsch
 			else {
-				printf("Ihre eingegebene Lösung %i ist leider falsch\n", loesung);
+				printf("Ihre eingegebene Lösung %f ist leider falsch\n", loesung);
 				printf("Um es noch mal zu probieren, druecke die 1, um die Loesung zu sehen, druecke eine andere Taste: ");
 				scanf("%i", &tryAgain);
 				fflush(stdin);
 				// Musterlösung ausgeben
 				if(tryAgain != 1) {
-					printf("Die korrekte Loesung ist: %i\n", musterloesung);
-					printf("Die eingegebene Loesung ist: %i\n", loesung);
+					printf("Die korrekte Loesung ist: %f\n", musterloesung);
+					printf("Die eingegebene Loesung ist: %f\n", loesung);
 				}
 				else {
 					// Konsole löschen
@@ -129,9 +129,9 @@ void eingabe(int *thema, int *schwierigkeit)
 }
 
 // Aufgaben für Ohmsches Gesetz
-int ohmschesGesetz(int *schwierigkeit, int *loesung){
+float ohmschesGesetz(int *schwierigkeit, float *loesung){
 	// Variablen definieren
-	int musterloesung;
+	float musterloesung;
 
 	if((*schwierigkeit) == 1) {
 		printf("Ohmsches Gesetz mit Schwierigkeit 1\n");
@@ -150,9 +150,9 @@ int ohmschesGesetz(int *schwierigkeit, int *loesung){
 }
 
 // Aufgaben für Kondensator
-int kondensator(int *schwierigkeit, int *loesung){
+float kondensator(int *schwierigkeit, float *loesung){
 	// Variablen definieren
-	int musterloesung;
+	float musterloesung;
 
 	if((*schwierigkeit) == 1) {
 		printf("Kondensator mit Schwierigkeit 1\n");
@@ -171,9 +171,9 @@ int kondensator(int *schwierigkeit, int *loesung){
 }
 
 // Aufgaben für Spulen
-int spule(int *schwierigkeit, int *loesung){
+float spule(int *schwierigkeit, float *loesung){
 	// Variablen definieren
-	int musterloesung;
+	float musterloesung;
 
 	if((*schwierigkeit) == 1) {
 		printf("Spule mit Schwierigkeit 1\n");
@@ -192,9 +192,9 @@ int spule(int *schwierigkeit, int *loesung){
 }
 
 // Aufgaben für Dioden
-int diode(int *schwierigkeit, int *loesung){
+float diode(int *schwierigkeit, float *loesung){
 	// Variablen definieren
-	int musterloesung;
+	float musterloesung;
 
 	if((*schwierigkeit) == 1) {
 		printf("Diode mit Schwierigkeit 1\n");
@@ -208,15 +208,24 @@ int diode(int *schwierigkeit, int *loesung){
 		printf("Diode mit Schwierigkeit 3\n");
 		musterloesung = 43;
 	}
+	// Eingabe der Lösung
 	*loesung = eingabeLoesung();
 	return musterloesung;
 }
 
 // Eingabe der Lösung
-int eingabeLoesung(){
-	int loesung = 0;
-	printf("Bitte gib die Lösung fuer die soeben gestellte Aufgabe ein: ");
-	scanf("%i" ,&loesung);
-	fflush(stdin);
+float eingabeLoesung(){
+	// Variablen definieren
+	float loesung = 0;
+	int check = 0;
+	
+	while(check == 0) {
+		printf("Bitte gib die Lösung fuer die soeben gestellte Aufgabe ein: ");
+		check = scanf("%i" ,&loesung);
+		fflush(stdin);
+		if(check == 0){
+			printf("Die Loesung muss eine Zahl sein und kann kein Zeichen sein\n");
+		}
+	}
 	return loesung;
 }
