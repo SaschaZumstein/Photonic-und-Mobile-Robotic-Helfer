@@ -112,6 +112,7 @@ int ohmschesGesetz(int schwierigkeit){
 	else if(schwierigkeit == 3){
 		printf("Ohmsches Gesetz mit Schwierigkeit 3\n");
 	}
+	return eingabeLoesung();
 }
 
 // Aufgaben für Kondensator
