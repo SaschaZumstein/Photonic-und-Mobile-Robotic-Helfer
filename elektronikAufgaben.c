@@ -16,12 +16,20 @@ Datum: 4.12.2023
 #include <math.h>
 #include "elektronikAufgaben.h"
 
+// Definitionen
+#define ja "ja"
+#define Ja "Ja"
+
 void elektronikAufgaben()
 {
-	float ergebnis = 5;
+	char weitereRechnung[] = "ja";
+
+	// Eingabe des Thema und der Schwierigkeit
+	while(strcmp (weitereRechnung, ja) == 0 || strcmp (weitereRechnung, Ja) == 0)
+	{
 	
-	printf("%f\n", ergebnis);
-	
+		printf("Bitte geben Sie ");
+	}
 	system("cls");
 	return;
 }
