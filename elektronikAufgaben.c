@@ -37,6 +37,9 @@ void elektronikAufgaben()
 	int schwierigkeit = 0;
 	int loesung = 0;
 
+	// Konsole löschen
+	system("cls");
+
 	// Durch die While-Schleife kann das Programm mehrmals ausgefuert werden.
 	while(strcmp (weitereAufgabe, ja) == 0 || strcmp (weitereAufgabe, Ja) == 0)
 	{
