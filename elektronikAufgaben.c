@@ -79,9 +79,12 @@ void elektronikAufgaben()
 					printf("Die korrekte Loesung ist: %i\n", musterloesung);
 					printf("Die eingegebene Loesung ist: %i\n", loesung);
 				}
+				else {
+					// Konsole löschen
+					system("cls");
+				}
 			}
 			// Konsole löschen
-			system("cls");
 		} while(tryAgain == 1);
 
 		// Abfrage ob eine weitere Aufgabe durchgefuert werden soll
