@@ -79,7 +79,7 @@ void eingabe(int *thema, int *schwierigkeit)
 	printf("Fuer Aufgaben zu Dioden waehle die 4.\n");
 	
 	// Eingabe des Themas
-	thema = 0;
+	(*thema) = 0;
 	while((*thema)<1 || (*thema)>4){
 		printf("\nWelches Thema willst du bearbeiten: ");
 		scanf("%i" ,thema);
@@ -90,7 +90,7 @@ void eingabe(int *thema, int *schwierigkeit)
 	}
 
 	// Eingabe des Schwierigkeitsgrad
-	schwierigkeit = 0;
+	(*schwierigkeit) = 0;
 	while((*schwierigkeit)<1 || (*schwierigkeit)>3){
 		printf("\nGib den Schwierigkeitsgrad zwischen 1 und 3 deiner Aufgabe ein: ");
 		scanf("%i" ,schwierigkeit);
