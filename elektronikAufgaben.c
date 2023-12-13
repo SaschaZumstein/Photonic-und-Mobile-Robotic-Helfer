@@ -80,7 +80,7 @@ void elektronikAufgaben()
 					printf("Die eingegebene Loesung ist: %i\n", loesung);
 				}
 			}
-		} while(tryAgain != 1);
+		} while(tryAgain == 1);
 
 		// Abfrage ob eine weitere Aufgabe durchgefuert werden soll
 		printf("\nWillst du eine weitere Aufgabe durchfueren? Wenn ja, dann schreibe ja oder Ja.\n");
