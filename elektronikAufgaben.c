@@ -22,19 +22,20 @@ Datum: 4.12.2023
 
 // Funktionsprototypen
 void eingabe(int *thema, int *schwierigkeit);
-void ohmschesGesetz(int schwierigkeit);
-void kirhoff(int schwierigkeit);
-void kondensator(int schwierigkeit);
-void spule(int schwierigkeit);
-void diode(int schwierigkeit);
-void transistor(int schwierigkeit);
+int ohmschesGesetz(int schwierigkeit);
+int kondensator(int schwierigkeit);
+int spule(int schwierigkeit);
+int diode(int schwierigkeit);
+int eingabeLoesung();
 
+// Hier steht das Hauptprogramm dieser Funktion
 void elektronikAufgaben()
 {
 	// Variable deklarieren
 	char weitereAufgabe[] = "ja";
 	int thema = 0;
 	int schwierigkeit = 0;
+	int loesung = 0;
 
 	// Durch die While-Schleife kann das Programm mehrmals ausgefuert werden.
 	while(strcmp (weitereAufgabe, ja) == 0 || strcmp (weitereAufgabe, Ja) == 0)
@@ -44,21 +45,20 @@ void elektronikAufgaben()
 
 		// Auswahl des Thema
 		switch(thema) {
-			case 1: 	ohmschesGesetz(schwierigkeit);
+			case 1: 	loesung = ohmschesGesetz(schwierigkeit);
 						break;
-			case 2: 	kirhoff(schwierigkeit);
+			case 2: 	loesung = kondensator(schwierigkeit);
 						break;
-			case 3: 	kondensator(schwierigkeit);
+			case 3: 	loesung = spule(schwierigkeit);
 						break;
-			case 4: 	spule(schwierigkeit);
-						break;
-			case 5: 	diode(schwierigkeit);
-						break;
-			case 6: 	transistor(schwierigkeit);
+			case 4: 	loesung = diode(schwierigkeit);
 						break;
 			default: 	printf("Du hast eine falsche Eingabe für das Thema gemacht.\n");
 						break;
 		}
+
+		// Ausgabe der eingegebenen Lösung
+		printf("Die eingegebene Loesung ist: %i", loesung);
 
 		// Abfrage ob eine weitere Aufgabe durchgefuert werden soll
 		printf("\nWillst du eine weitere Aufgabe durchfueren? Wenn ja, dann schreibe ja oder Ja.\n");
@@ -74,19 +74,17 @@ void eingabe(int *thema, int *schwierigkeit)
 {
 	// Menü für Eingabe des Themas
 	printf("\nFuer Aufgaben zum Ohmschen Gesetz waehle die 1.\n");
-	printf("Fuer Aufgaben zu den Kirhoffschen Gesetzen waehle die 2.\n");
-	printf("Fuer Aufgaben zu Kondensatoren waehle die 3.\n");
-	printf("Fuer Aufgaben zu Spulen waehle die 4.\n");
-	printf("Fuer Aufgaben zu Dioden waehle die 5.\n");
-	printf("Fuer Aufgaben zu Transistoren waehle die 6.\n");
+	printf("Fuer Aufgaben zu Kondensatoren waehle die 2.\n");
+	printf("Fuer Aufgaben zu Spulen waehle die 3.\n");
+	printf("Fuer Aufgaben zu Dioden waehle die 4.\n");
 	
 	// Eingabe des Themas
 	thema = 0;
-	while((*thema)<1 || (*thema)>6){
+	while((*thema)<1 || (*thema)>4){
 		printf("\nWelches Thema willst du bearbeiten: ");
 		scanf("%i" ,thema);
 		fflush(stdin);
-		if((*thema)<1 || (*thema)>6){
+		if((*thema)<1 || (*thema)>4){
 			printf("Du kannst nur die Themen aus der Liste auswählen, versuche es noch einmal\n");
 		}
 	}
@@ -101,4 +99,68 @@ void eingabe(int *thema, int *schwierigkeit)
 			printf("Du kannst nur die Schwierigkeitsgrade 1, 2 oder 3 eingeben, versuche es noch einmal\n");
 		}
 	}
+}
+
+// Aufgaben für Ohmsches Gesetz
+int ohmschesGesetz(int schwierigkeit){
+	if(schwierigkeit == 1) {
+		printf("Ohmsches Gesetz mit Schwierigkeit 1\n");
+	}
+	else if(schwierigkeit == 2) {
+		printf("Ohmsches Gesetz mit Schwierigkeit 2\n");
+	}
+	else if(schwierigkeit == 3){
+		printf("Ohmsches Gesetz mit Schwierigkeit 3\n");
+	}
+}
+
+// Aufgaben für Kondensator
+int kondensator(int schwierigkeit){
+	if(schwierigkeit == 1) {
+		printf("Kondensator mit Schwierigkeit 1\n");
+	}
+	else if(schwierigkeit == 2) {
+		printf("Kondensator mit Schwierigkeit 2\n");
+	}
+	else if(schwierigkeit == 3){
+		printf("Kondensator mit Schwierigkeit 3\n");
+	}
+	return eingabeLoesung();
+}
+
+// Aufgaben für Spulen
+int spule(int schwierigkeit){
+	if(schwierigkeit == 1) {
+		printf("Spule mit Schwierigkeit 1\n");
+	}
+	else if(schwierigkeit == 2) {
+		printf("Spule mit Schwierigkeit 2\n");
+	}
+	else if(schwierigkeit == 3){
+		printf("Spule mit Schwierigkeit 3\n");
+	}
+	return eingabeLoesung();
+}
+
+// Aufgaben für Dioden
+int diode(int schwierigkeit){
+	if(schwierigkeit == 1) {
+		printf("Diode mit Schwierigkeit 1\n");
+	}
+	else if(schwierigkeit == 2) {
+		printf("Diode mit Schwierigkeit 2\n");
+	}
+	else if(schwierigkeit == 3){
+		printf("Diode mit Schwierigkeit 3\n");
+	}
+	return eingabeLoesung();
+}
+
+// Eingabe der Lösung
+int eingabeLoesung(){
+	int loesung = 0;
+	printf("Bitte gib die Lösung fuer die soeben gestellte Aufgabe ein: ");
+	scanf("%i" ,loesung);
+	fflush(stdin);
+	return loesung;
 }
