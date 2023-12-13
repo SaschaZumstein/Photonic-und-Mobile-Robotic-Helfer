@@ -25,6 +25,7 @@ void eingabe(int *thema, int *schwierigkeit);
 
 void elektronikAufgaben()
 {
+	// Variable deklarieren
 	char weitereAufgabe[] = "ja";
 	int thema = 0;
 	int schwierigkeit = 0;
@@ -34,6 +35,24 @@ void elektronikAufgaben()
 	{
 		// Eingabe des Themas und des Schwierigkeitsgrades
 		eingabe(&thema, &schwierigkeit);
+
+		// Auswahl des Thema
+		switch(thema) {
+			case 1: 	ohmschesGesetz(schwierigkeit);
+						break;
+			case 2: 	kirhoff(schwierigkeit);
+						break;
+			case 3: 	kondensator(schwierigkeit);
+						break;
+			case 4: 	spule(schwierigkeit);
+						break;
+			case 5: 	diode(schwierigkeit);
+						break;
+			case 6: 	transistor(schwierigkeit);
+						break;
+			default: 	printf("Du hast eine falsche Eingabe für das Thema gemacht.\n");
+						break;
+		}
 
 		// Abfrage ob eine weitere Aufgabe durchgefuert werden soll
 		printf("\nWillst du eine weitere Aufgabe durchfueren? Wenn ja, dann schreibe ja oder Ja.\n");
@@ -56,12 +75,24 @@ void eingabe(int *thema, int *schwierigkeit)
 	printf("Fuer Aufgaben zu Transistoren waehle die 6.\n");
 	
 	// Eingabe des Themas
-	printf("\nWelches Thema willst du bearbeiten: ");
-	scanf("%i" ,thema);
-	fflush(stdin);
+	thema = 0;
+	while(thema<1 || thema>6){
+		printf("\nWelches Thema willst du bearbeiten: ");
+		scanf("%i" ,thema);
+		fflush(stdin);
+		if(thema<1 || thema>6){
+			printf("Du kannst nur die Themen aus der Liste auswählen, versuche es noch einmal\n");
+		}
+	}
 
 	// Eingabe des Schwierigkeitsgrad
-	printf("\nGib einen Schwierigkeitsgrad zwischen 1 und 3 für deine Aufgabe ein: ");
-	scanf("%i" ,schwierigkeit);
-	fflush(stdin);
+	schwierigkeit = 0;
+	while(schwierigkeit<1 || schwierigkeit>3){
+		printf("\nGib den Schwierigkeitsgrad zwischen 1 und 3 deiner Aufgabe ein: ");
+		scanf("%i" ,schwierigkeit);
+		fflush(stdin);
+		if(schwierigkeit<1 || schwierigkeit>3){
+			printf("Du kannst nur die Schwierigkeitsgrade 1, 2 oder 3 eingeben, versuche es noch einmal\n");
+		}
+	}
 }
