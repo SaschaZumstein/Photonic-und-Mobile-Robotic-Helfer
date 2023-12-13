@@ -22,6 +22,12 @@ Datum: 4.12.2023
 
 // Funktionsprototypen
 void eingabe(int *thema, int *schwierigkeit);
+void ohmschesGesetz(int schwierigkeit);
+void kirhoff(int schwierigkeit);
+void kondensator(int schwierigkeit);
+void spule(int schwierigkeit);
+void diode(int schwierigkeit);
+void transistor(int schwierigkeit);
 
 void elektronikAufgaben()
 {
@@ -76,22 +82,22 @@ void eingabe(int *thema, int *schwierigkeit)
 	
 	// Eingabe des Themas
 	thema = 0;
-	while(thema<1 || thema>6){
+	while((*thema)<1 || (*thema)>6){
 		printf("\nWelches Thema willst du bearbeiten: ");
 		scanf("%i" ,thema);
 		fflush(stdin);
-		if(thema<1 || thema>6){
+		if((*thema)<1 || (*thema)>6){
 			printf("Du kannst nur die Themen aus der Liste auswählen, versuche es noch einmal\n");
 		}
 	}
 
 	// Eingabe des Schwierigkeitsgrad
 	schwierigkeit = 0;
-	while(schwierigkeit<1 || schwierigkeit>3){
+	while((*schwierigkeit)<1 || (*schwierigkeit)>3){
 		printf("\nGib den Schwierigkeitsgrad zwischen 1 und 3 deiner Aufgabe ein: ");
 		scanf("%i" ,schwierigkeit);
 		fflush(stdin);
-		if(schwierigkeit<1 || schwierigkeit>3){
+		if((*schwierigkeit)<1 || (*schwierigkeit)>3){
 			printf("Du kannst nur die Schwierigkeitsgrade 1, 2 oder 3 eingeben, versuche es noch einmal\n");
 		}
 	}
