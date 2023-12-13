@@ -66,11 +66,11 @@ void elektronikAufgaben()
 
 			// Lösung korrekt
 			if(loesung == musterloesung){
-				printf("Bravo, die eingegebene Loesung ist korrekt\n", loesung);
+				printf("Bravo, die eingegebene Loesung %i ist korrekt\n", loesung);
 			}
 			// Loesung falsch
 			else {
-				printf("Ihre eingegebene Lösung ist leider falsch\n");
+				printf("Ihre eingegebene Lösung %i ist leider falsch\n", loesung);
 				printf("Um es noch mal zu probieren, druecke die 1, um die Loesung zu sehen, druecke eine andere Taste: ");
 				scanf("%i", &tryAgain);
 				fflush(stdin);
@@ -80,6 +80,8 @@ void elektronikAufgaben()
 					printf("Die eingegebene Loesung ist: %i\n", loesung);
 				}
 			}
+			// Konsole löschen
+			system("cls");
 		} while(tryAgain == 1);
 
 		// Abfrage ob eine weitere Aufgabe durchgefuert werden soll
