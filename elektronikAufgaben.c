@@ -22,10 +22,10 @@ Datum: 4.12.2023
 
 // Funktionsprototypen
 void eingabe(int *thema, int *schwierigkeit);
-int ohmschesGesetz(int schwierigkeit);
-int kondensator(int schwierigkeit);
-int spule(int schwierigkeit);
-int diode(int schwierigkeit);
+int ohmschesGesetz(int *schwierigkeit, int *loesung);
+int kondensator(int *schwierigkeit, int *loesung);
+int spule(int *schwierigkeit, int *loesung);
+int diode(int *schwierigkeit, int *loesung);
 int eingabeLoesung();
 
 // Hier steht das Hauptprogramm dieser Funktion
@@ -36,6 +36,7 @@ void elektronikAufgaben()
 	int thema = 0;
 	int schwierigkeit = 0;
 	int loesung = 0;
+	int musterloesung = 0;
 
 	// Konsole löschen
 	system("cls");
@@ -48,13 +49,13 @@ void elektronikAufgaben()
 
 		// Auswahl des Thema
 		switch(thema) {
-			case 1: 	loesung = ohmschesGesetz(schwierigkeit);
+			case 1: 	musterloesung = ohmschesGesetz(&schwierigkeit, &loesung);
 						break;
-			case 2: 	loesung = kondensator(schwierigkeit);
+			case 2: 	musterloesung = kondensator(&schwierigkeit, &loesung);
 						break;
-			case 3: 	loesung = spule(schwierigkeit);
+			case 3: 	musterloesung = spule(&schwierigkeit, &loesung);
 						break;
-			case 4: 	loesung = diode(schwierigkeit);
+			case 4: 	musterloesung = diode(&schwierigkeit, &loesung);
 						break;
 			default: 	printf("Du hast eine falsche Eingabe für das Thema gemacht.\n");
 						break;
@@ -62,6 +63,17 @@ void elektronikAufgaben()
 
 		// Ausgabe der eingegebenen Lösung
 		printf("Die eingegebene Loesung ist: %i", loesung);
+
+		// Lösung korrekt
+		if(loesung == musterloesung){
+			printf("Bravo, die eingegebene Loesung ist korrekt\n");
+		}
+		// Loesung falsch
+		else {
+			printf("Ihre eingegebene Lösung ist leider falsch\n");
+			printf("Ihre Loesung: %i\n", loesung);
+			printf("Die korrekte Loesung: %i", musterloesung);
+		}
 
 		// Abfrage ob eine weitere Aufgabe durchgefuert werden soll
 		printf("\nWillst du eine weitere Aufgabe durchfueren? Wenn ja, dann schreibe ja oder Ja.\n");
@@ -105,59 +117,87 @@ void eingabe(int *thema, int *schwierigkeit)
 }
 
 // Aufgaben für Ohmsches Gesetz
-int ohmschesGesetz(int schwierigkeit){
-	if(schwierigkeit == 1) {
+int ohmschesGesetz(int *schwierigkeit, int *loesung){
+	// Variablen definieren
+	int musterloesung;
+
+	if((*schwierigkeit) == 1) {
 		printf("Ohmsches Gesetz mit Schwierigkeit 1\n");
+		musterloesung = 11;
 	}
-	else if(schwierigkeit == 2) {
+	else if((*schwierigkeit) == 2) {
 		printf("Ohmsches Gesetz mit Schwierigkeit 2\n");
+		musterloesung = 12;
 	}
-	else if(schwierigkeit == 3){
+	else if((*schwierigkeit) == 3){
 		printf("Ohmsches Gesetz mit Schwierigkeit 3\n");
+		musterloesung = 13;
 	}
-	return (eingabeLoesung());
+	*loesung = eingabeLoesung();
+	return musterloesung;
 }
 
 // Aufgaben für Kondensator
-int kondensator(int schwierigkeit){
-	if(schwierigkeit == 1) {
+int kondensator(int *schwierigkeit, int *loesung){
+	// Variablen definieren
+	int musterloesung;
+
+	if((*schwierigkeit) == 1) {
 		printf("Kondensator mit Schwierigkeit 1\n");
+		musterloesung = 21;
 	}
-	else if(schwierigkeit == 2) {
+	else if((*schwierigkeit) == 2) {
 		printf("Kondensator mit Schwierigkeit 2\n");
+		musterloesung = 22;
 	}
-	else if(schwierigkeit == 3){
+	else if((*schwierigkeit) == 3){
 		printf("Kondensator mit Schwierigkeit 3\n");
+		musterloesung = 23;
 	}
-	return (eingabeLoesung());
+	*loesung = eingabeLoesung();
+	return musterloesung;
 }
 
 // Aufgaben für Spulen
-int spule(int schwierigkeit){
-	if(schwierigkeit == 1) {
+int spule(int *schwierigkeit, int *loesung){
+	// Variablen definieren
+	int musterloesung;
+
+	if((*schwierigkeit) == 1) {
 		printf("Spule mit Schwierigkeit 1\n");
+		musterloesung = 31;
 	}
-	else if(schwierigkeit == 2) {
+	else if((*schwierigkeit) == 2) {
 		printf("Spule mit Schwierigkeit 2\n");
+		musterloesung = 32;
 	}
-	else if(schwierigkeit == 3){
+	else if((*schwierigkeit) == 3){
 		printf("Spule mit Schwierigkeit 3\n");
+		musterloesung = 33;
 	}
-	return (eingabeLoesung());
+	*loesung = eingabeLoesung();
+	return musterloesung;
 }
 
 // Aufgaben für Dioden
-int diode(int schwierigkeit){
-	if(schwierigkeit == 1) {
+int diode(int *schwierigkeit, int *loesung){
+	// Variablen definieren
+	int musterloesung;
+
+	if((*schwierigkeit) == 1) {
 		printf("Diode mit Schwierigkeit 1\n");
+		musterloesung = 41;
 	}
-	else if(schwierigkeit == 2) {
+	else if((*schwierigkeit) == 2) {
 		printf("Diode mit Schwierigkeit 2\n");
+		musterloesung = 42;
 	}
-	else if(schwierigkeit == 3){
+	else if((*schwierigkeit) == 3){
 		printf("Diode mit Schwierigkeit 3\n");
+		musterloesung = 43;
 	}
-	return (eingabeLoesung());
+	*loesung = eingabeLoesung();
+	return musterloesung;
 }
 
 // Eingabe der Lösung
