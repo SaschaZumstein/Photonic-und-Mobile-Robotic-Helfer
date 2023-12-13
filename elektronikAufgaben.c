@@ -33,6 +33,7 @@ void elektronikAufgaben()
 {
 	// Variable deklarieren
 	char weitereAufgabe[] = "ja";
+	int tryAgain = 0;
 	int thema = 0;
 	int schwierigkeit = 0;
 	int loesung = 0;
@@ -47,33 +48,39 @@ void elektronikAufgaben()
 		// Eingabe des Themas und des Schwierigkeitsgrades
 		eingabe(&thema, &schwierigkeit);
 
-		// Auswahl des Thema
-		switch(thema) {
-			case 1: 	musterloesung = ohmschesGesetz(&schwierigkeit, &loesung);
-						break;
-			case 2: 	musterloesung = kondensator(&schwierigkeit, &loesung);
-						break;
-			case 3: 	musterloesung = spule(&schwierigkeit, &loesung);
-						break;
-			case 4: 	musterloesung = diode(&schwierigkeit, &loesung);
-						break;
-			default: 	printf("Du hast eine falsche Eingabe für das Thema gemacht.\n");
-						break;
-		}
+		do {
+			tryAgain = 0;
+			// Auswahl des Thema
+			switch(thema) {
+				case 1: 	musterloesung = ohmschesGesetz(&schwierigkeit, &loesung);
+							break;
+				case 2: 	musterloesung = kondensator(&schwierigkeit, &loesung);
+							break;
+				case 3: 	musterloesung = spule(&schwierigkeit, &loesung);
+							break;
+				case 4: 	musterloesung = diode(&schwierigkeit, &loesung);
+							break;
+				default: 	printf("Du hast eine falsche Eingabe für das Thema gemacht.\n");
+							break;
+			}
 
-		// Ausgabe der eingegebenen Lösung
-		printf("Die eingegebene Loesung ist: %i", loesung);
-
-		// Lösung korrekt
-		if(loesung == musterloesung){
-			printf("Bravo, die eingegebene Loesung ist korrekt\n");
-		}
-		// Loesung falsch
-		else {
-			printf("Ihre eingegebene Lösung ist leider falsch\n");
-			printf("Ihre Loesung: %i\n", loesung);
-			printf("Die korrekte Loesung: %i", musterloesung);
-		}
+			// Lösung korrekt
+			if(loesung == musterloesung){
+				printf("Bravo, die eingegebene Loesung ist korrekt\n", loesung);
+			}
+			// Loesung falsch
+			else {
+				printf("Ihre eingegebene Lösung ist leider falsch\n");
+				printf("Um es noch mal zu probieren, druecke die 1, um die Loesung zu sehen, druecke eine andere Taste: ");
+				scanf("%i", &tryAgain);
+				fflush(stdin);
+				// Musterlösung ausgeben
+				if(tryAgain != 1) {
+					printf("Die korrekte Loesung ist: %i\n", musterloesung);
+					printf("Die eingegebene Loesung ist: %i\n", loesung);
+				}
+			}
+		} while(tryAgain != 1);
 
 		// Abfrage ob eine weitere Aufgabe durchgefuert werden soll
 		printf("\nWillst du eine weitere Aufgabe durchfueren? Wenn ja, dann schreibe ja oder Ja.\n");
