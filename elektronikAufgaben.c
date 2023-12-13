@@ -20,16 +20,48 @@ Datum: 4.12.2023
 #define ja "ja"
 #define Ja "Ja"
 
+// Funktionsprototypen
+void eingabe(int *thema, int *schwierigkeit);
+
 void elektronikAufgaben()
 {
-	char weitereRechnung[] = "ja";
+	char weitereAufgabe[] = "ja";
+	int thema = 0;
+	int schwierigkeit = 0;
 
-	// Eingabe des Thema und der Schwierigkeit
-	while(strcmp (weitereRechnung, ja) == 0 || strcmp (weitereRechnung, Ja) == 0)
+	// Durch die While-Schleife kann das Programm mehrmals ausgefuert werden.
+	while(strcmp (weitereAufgabe, ja) == 0 || strcmp (weitereAufgabe, Ja) == 0)
 	{
-	
-		printf("Bitte geben Sie ");
+		// Eingabe des Themas und des Schwierigkeitsgrades
+		eingabe(&thema, &schwierigkeit);
+
+		// Abfrage ob eine weitere Aufgabe durchgefuert werden soll
+		printf("\nWillst du eine weitere Aufgabe durchfueren? Wenn ja, dann schreibe ja oder Ja.\n");
+		scanf("%s", weitereAufgabe);
+		fflush(stdin);
+		system("cls");
 	}
-	system("cls");
 	return;
+}
+
+// Eingabe des Themas und des Schwierigkeitsgrades
+void eingabe(int *thema, int *schwierigkeit) 
+{
+	// Menü für Eingabe des Themas
+	printf("\nFuer Aufgaben zum Ohmschen Gesetz waehle die 1.\n");
+	printf("Fuer Aufgaben zu den Kirhoffschen Gesetzen waehle die 2.\n");
+	printf("Fuer Aufgaben zu Kondensatoren waehle die 3.\n");
+	printf("Fuer Aufgaben zu Spulen waehle die 4.\n");
+	printf("Fuer Aufgaben zu Dioden waehle die 5.\n");
+	printf("Fuer Aufgaben zu Transistoren waehle die 6.\n");
+	
+	// Eingabe des Themas
+	printf("\nWelches Thema willst du bearbeiten: ");
+	scanf("%i" ,thema);
+	fflush(stdin);
+
+	// Eingabe des Schwierigkeitsgrad
+	printf("\nGib einen Schwierigkeitsgrad zwischen 1 und 3 für deine Aufgabe ein: ");
+	scanf("%i" ,schwierigkeit);
+	fflush(stdin);
 }
