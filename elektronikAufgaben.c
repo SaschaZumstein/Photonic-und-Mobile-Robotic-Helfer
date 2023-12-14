@@ -84,7 +84,6 @@ void elektronikAufgaben()
 					system("cls");
 				}
 			}
-			// Konsole löschen
 		} while(tryAgain == 1);
 
 		// Abfrage ob eine weitere Aufgabe durchgefuert werden soll
