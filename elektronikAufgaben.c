@@ -52,13 +52,17 @@ void elektronikAufgaben()
 			tryAgain = 0;
 			// Auswahl des Thema
 			switch(thema) {
-				case 1: 	musterloesung = ohmschesGesetz(&schwierigkeit, &loesung);
+				case 1: 	// Aufgaben zum Ohmschen Gesetz
+							musterloesung = ohmschesGesetz(&schwierigkeit, &loesung);
 							break;
-				case 2: 	musterloesung = kondensator(&schwierigkeit, &loesung);
+				case 2: 	// Aufgaben zum Kondensator
+							musterloesung = kondensator(&schwierigkeit, &loesung);
 							break;
-				case 3: 	musterloesung = spule(&schwierigkeit, &loesung);
+				case 3: 	// Aufgaben zur Spule
+							musterloesung = spule(&schwierigkeit, &loesung);
 							break;
-				case 4: 	musterloesung = diode(&schwierigkeit, &loesung);
+				case 4: 	// Aufgaben zu Dioden
+							musterloesung = diode(&schwierigkeit, &loesung);
 							break;
 				default: 	printf("Du hast eine falsche Eingabe für das Thema gemacht.\n");
 							break;
@@ -87,7 +91,7 @@ void elektronikAufgaben()
 		} while(tryAgain == 1);
 
 		// Abfrage ob eine weitere Aufgabe durchgefuert werden soll
-		printf("\nWillst du eine weitere Aufgabe durchfueren? Wenn ja, dann schreibe ja oder Ja.\n");
+		printf("\nWillst du eine weitere Elektronik-Aufgabe durchfueren? Wenn ja, dann schreibe ja oder Ja.\n");
 		scanf("%s", weitereAufgabe);
 		fflush(stdin);
 		system("cls");
