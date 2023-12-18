@@ -208,13 +208,13 @@ void spule(int *schwierigkeit, float *loesung, float *musterloesung){
 // Aufgaben für Dioden
 void diode(int *schwierigkeit, float *loesung, float *musterloesung){
 	if((*schwierigkeit) == 1) {
-		 printf("Wie gross ist die Spannung in Volt, ab der eine Silizium-Halbleiterdiode in Durchlassichtung leitet?\n ");
+		 printf("Wie gross ist die Spannung in Volt, ab der eine Silizium-Halbleiterdiode in Durchlassichtung leitet?\n");
 		*musterloesung = 0.7;
 	}
 	else if((*schwierigkeit) == 2) {
 		printf("Wie entsteht die Sperrschicht in einer Diode?\n");
-    	printf("1) Es wird eine Spannung von 0.7V angelegt.\n\n");
-   		printf("2) Die Löcher und Elektronen kommen sich sehr nahe und neutralisieren sich.\n\n");
+    	printf("1) Es wird eine Spannung von 0.7V angelegt.\n");
+   		printf("2) Die Löcher und Elektronen kommen sich sehr nahe und neutralisieren sich.\n");
     	printf("3) Löcher werden von der Anode und Elektronen von der Kathode angezogen.\ndadurch entsteht dazwischen ein grosser Freiraum.\n");
 		*musterloesung = 3;
 	}
