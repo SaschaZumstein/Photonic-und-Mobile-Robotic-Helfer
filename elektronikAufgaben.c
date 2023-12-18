@@ -71,7 +71,7 @@ void elektronikAufgaben()
 
 			// Lösung korrekt
 			if(loesung == musterloesung){
-				printf("Bravo, die eingegebene Loesung %f ist korrekt\n", loesung);
+				printf("Bravo, die eingegebene Loesung %f ist korrekt\n\n", loesung);
 				// Lösungsweg anzeigen
 				loesungsweg(&thema, &schwierigkeit);
 			}
@@ -84,6 +84,7 @@ void elektronikAufgaben()
 				// Musterlösung ausgeben
 				if(tryAgain != 1) {
 					// Lösungsweg anzeigen
+					printf("\n");
 					loesungsweg(&thema, &schwierigkeit);
 					printf("Die eingegebene Loesung ist: %f\n", loesung);
 				}
@@ -250,7 +251,7 @@ void loesungsweg(int *thema, int *schwierigkeit){
 	switch (*thema) {
 		case 1: 	if((*schwierigkeit) == 1) {
  						printf("Um den Gesamtwiderstand aus R1 und R2 zu berechnen gilt: 1/R = (1/R1) + (1/R2).\n");
-    					printf("Da R1=R2 ist, gilt R= R1/2. Somit gilt: R = 120Ohm/2 = 60Ohm.\n ");
+    					printf("Da R1=R2 ist, gilt R= R1/2. Somit gilt: R = 120Ohm/2 = 60Ohm.\n");
    						printf("Nach dem Ohmschen Gesetz gilt: U= R * I = 60Ohm * 0.12A = 7.2V\n");
 					}
 					else if((*schwierigkeit) == 2){
