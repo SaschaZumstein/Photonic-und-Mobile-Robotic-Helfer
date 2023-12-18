@@ -159,16 +159,22 @@ void ohmschesGesetz(int *schwierigkeit, float *loesung, float *musterloesung){
 // Aufgaben für Kondensator
 void kondensator(int *schwierigkeit, float *loesung, float *musterloesung){
 	if((*schwierigkeit) == 1) {
-		printf("Kondensator mit Schwierigkeit 1\n");
-		*musterloesung = 21;
+		printf("Ein Kondensator wird über einen Widerstand geladen.\n");
+		printf("Wie lange dauert es bis die Spannung am Kondensator auf 63%% der Gesamtspannung angestiegen ist?\n");
+		printf("1) 5*Tau\n");
+   		printf("2) 1*Tau\n");
+    	printf("3) 3.625ms\n");
+		*musterloesung = 2;
 	}
 	else if((*schwierigkeit) == 2) {
-		printf("Kondensator mit Schwierigkeit 2\n");
-		*musterloesung = 22;
+		printf("Durch ein Kondensator mit C=10mF fliest für 1ms ein Strom von 20mA.\n");
+		printf("Welche Spannung in Volt hat der zuvor spannungslose Kondensator nun anliegen?\n");
+		*musterloesung = 2;
 	}
 	else if((*schwierigkeit) == 3){
-		printf("Kondensator mit Schwierigkeit 3\n");
-		*musterloesung = 23;
+		printf("Ein Kondensator C=10mF liegt mit einem Widerstand R=10kOhm in Serie an einer Spannung von 5V.\n");
+		printf("Welche Spannung in Volt auf zwei Kommastellen gerundet liegt am Kondensator nach t=70s an?\n");
+		*musterloesung = 2.52;
 	}
 	*loesung = eingabeLoesung();
 }
@@ -176,16 +182,21 @@ void kondensator(int *schwierigkeit, float *loesung, float *musterloesung){
 // Aufgaben für Spulen
 void spule(int *schwierigkeit, float *loesung, float *musterloesung){
 	if((*schwierigkeit) == 1) {
-		printf("Spule mit Schwierigkeit 1\n");
+		printf("Mit welcher Regel kann die Richtung eines kreisfoermigen Magnetfeldes um einen Leiter bestimmt werden?\n");
+		printf("1) Rechte-Hand-Regel\n");
+   		printf("2) Linke-Hand-Regel\n");
+    	printf("3) Es gibt keine Regel\n");
 		*musterloesung = 31;
 	}
 	else if((*schwierigkeit) == 2) {
-		printf("Spule mit Schwierigkeit 2\n");
-		*musterloesung = 32;
+		printf("Durch eine Spule fliesst nach einer Zeit von 20ms ein Strom von 50mA und eine Spannung von 2V liegt an der Spule.\n");
+		printf("Welche Induktivität in mH hat die Spule?\n");
+		*musterloesung = 800;
 	}
 	else if((*schwierigkeit) == 3){
-		printf("Spule mit Schwierigkeit 3\n");
-		*musterloesung = 33;
+		printf("Durch eine Spule mit L=500mH fliesst ein Strom von I=2A. Die Spule wird nun über einem Widerstand R=100Ohm entladen.\n");
+		printf("Welcher Strom in Ampere auf zwei Kommastellen gerundet fliesst nach einer Zeit von t=2ms?\n");
+		*musterloesung = 1.34;
 	}
 	*loesung = eingabeLoesung();
 }
@@ -246,20 +257,20 @@ void loesungsweg(int *thema, int *schwierigkeit){
 					}
 					break;
 		case 2: 	if((*schwierigkeit) == 1) {
-
+						printf("Die Spannung an einem Kondensator, der über einen Widerstand geladen wird, ist nach 1 Tau auf 63%% und nach 5 Tau auf 99%% angestiegen.\n");
 					}
 					else if((*schwierigkeit) == 2){
-
+						printf("U = I*t/C = 20mA*1ms/10mF = 2V\n");
 					}
 					else if((*schwierigkeit) == 3){
-						
+						printf("U(t) = U0*e^-(t/Tau) = U0*e^-(t/(R*C)) = 5V*e^-(70s/(10kOhm*10mF)) = 2.52V\n");
 					}
 					break;
 		case 3: 	if((*schwierigkeit) == 1) {
-
+						printf("Um die Richtung eines Magnetfeldes zu bestimmen, gilt die Rechte-Hand-Regel\n");
 					}
 					else if((*schwierigkeit) == 2){
-
+						printf("L = U*t/I = 2V*20ms/50mA = 800mH\n");
 					}
 					else if((*schwierigkeit) == 3){
 						
