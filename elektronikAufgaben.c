@@ -72,6 +72,7 @@ void elektronikAufgaben()
 			// Lösung korrekt
 			if(loesung == musterloesung){
 				printf("Bravo, die eingegebene Loesung %f ist korrekt\n", loesung);
+				// Lösungsweg anzeigen
 				loesungsweg(&thema, &schwierigkeit);
 			}
 			// Loesung falsch
@@ -82,6 +83,7 @@ void elektronikAufgaben()
 				fflush(stdin);
 				// Musterlösung ausgeben
 				if(tryAgain != 1) {
+					// Lösungsweg anzeigen
 					loesungsweg(&thema, &schwierigkeit);
 					printf("Die eingegebene Loesung ist: %f\n", loesung);
 				}
@@ -215,8 +217,12 @@ void diode(int *schwierigkeit, float *loesung, float *musterloesung){
 		*musterloesung = 3;
 	}
 	else if((*schwierigkeit) == 3){
-		printf("Diode mit Schwierigkeit 3\n");
-		*musterloesung = 43;
+		printf("Welche Aussage über Zener-Dioden ist falsch?\n");
+		printf("1) Zener-Dioden werden meist in Sperrrichtung betrieben.\n");
+   		printf("2) Zener-Dioden haben eine spezifische Durchbruchsspannung.\n");
+    	printf("3) Zener-Dioden werden oft als Spannungsregler verwendet.\n");
+		printf("4) Zener-Dioden haben zwischen dem p- und n- Bereich eine Zone, die nur schwach dotiert ist.\n");
+		*musterloesung = 4;
 	}
 	// Eingabe der Lösung
 	*loesung = eingabeLoesung();
@@ -239,6 +245,7 @@ float eingabeLoesung(){
 	return loesung;
 }
 
+// Lösungsweg anzeigen
 void loesungsweg(int *thema, int *schwierigkeit){
 	switch (*thema) {
 		case 1: 	if((*schwierigkeit) == 1) {
@@ -273,7 +280,7 @@ void loesungsweg(int *thema, int *schwierigkeit){
 						printf("L = U*t/I = 2V*20ms/50mA = 800mH\n");
 					}
 					else if((*schwierigkeit) == 3){
-						
+						printf("I(t) = I0*e^-(R*t/L) = 2A*e^-(100Ohm*2ms/500mH) = 1.34A\n");
 					}
 					break;
 		case 4: 	if((*schwierigkeit) == 1) {
@@ -285,7 +292,7 @@ void loesungsweg(int *thema, int *schwierigkeit){
             			printf("Löcher (positive Ladungsträger, die durch Elektronenmangel entstehen) werden von der Anode angezogen und fließen in Richtung Kathode.\n");
 					}
 					else if((*schwierigkeit) == 3){
-						
+						printf("4) ist falsch, diese Aussage beschreibt pin-Dioden.\n");
 					}
 					break;
 		default: 	printf("Du hast eine falsche Eingabe für das Thema gemacht.\n");
