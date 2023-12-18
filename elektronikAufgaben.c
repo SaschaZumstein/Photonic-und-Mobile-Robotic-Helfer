@@ -130,6 +130,7 @@ void eingabe(int *thema, int *schwierigkeit)
 		printf("\nGib den Schwierigkeitsgrad zwischen 1 und 3 deiner Aufgabe ein: ");
 		scanf("%i" ,schwierigkeit);
 		fflush(stdin);
+		printf("\n");
 		if((*schwierigkeit)<1 || (*schwierigkeit)>3){
 			printf("Du kannst nur die Schwierigkeitsgrade 1, 2 oder 3 eingeben, versuche es noch einmal\n");
 		}
