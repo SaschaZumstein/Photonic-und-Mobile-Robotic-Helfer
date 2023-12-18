@@ -77,7 +77,7 @@ void elektronikAufgaben()
 			}
 			// Loesung falsch
 			else {
-				printf("Ihre eingegebene Lösung %f ist leider falsch\n", loesung);
+				printf("\nIhre eingegebene Lösung %f ist leider falsch\n", loesung);
 				printf("Um es noch mal zu probieren, druecke die 1, um die Loesung zu sehen, druecke eine andere Taste: ");
 				scanf("%i", &tryAgain);
 				fflush(stdin);
