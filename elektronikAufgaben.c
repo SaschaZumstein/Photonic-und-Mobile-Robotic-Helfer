@@ -215,7 +215,7 @@ void diode(int *schwierigkeit, float *loesung, float *musterloesung){
 		printf("Wie entsteht die Sperrschicht in einer Diode?\n");
     	printf("1) Es wird eine Spannung von 0.7V angelegt.\n");
    		printf("2) Die Löcher und Elektronen kommen sich sehr nahe und neutralisieren sich.\n");
-    	printf("3) Löcher werden von der Anode und Elektronen von der Kathode angezogen.\ndadurch entsteht dazwischen ein grosser Freiraum.\n");
+    	printf("3) Löcher werden von der Anode und Elektronen von der Kathode angezogen, dadurch entsteht dazwischen ein grosser Freiraum.\n");
 		*musterloesung = 3;
 	}
 	else if((*schwierigkeit) == 3){
