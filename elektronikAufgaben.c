@@ -134,9 +134,9 @@ void eingabe(int *thema, int *schwierigkeit)
 // Aufgaben für Ohmsches Gesetz
 void ohmschesGesetz(int *schwierigkeit, float *loesung, float *musterloesung){
 	if((*schwierigkeit) == 1) {
-		printf("Sie haben 2 parallel geschaltene Widerstände mit R1=R2= 120ohm. \n ");
+		printf("Sie haben 2 parallel geschaltene Widerstände mit R1 = R2 = 120ohm.\n");
     	printf("Wie gross ist die Spannung in Volt, wenn ein Gesamtstrom von 120mA fliesst?\n");
-		*musterloesung = 60;
+		*musterloesung = 7.2;
 	}
 	else if((*schwierigkeit) == 2) {
 		printf("R1 ist parallel mir R2, R3 ist parallel mit R4. Die Parallelschaltungen sind in Serie geschaltet.\n");
