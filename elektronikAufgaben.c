@@ -1,11 +1,11 @@
 /* elektronikAufgaben.c
-Das Programm soll ein Helfer fuer Photonics und Mobile Robotics Studenten sein.
-Autor: _________, __________
+Ein Programm welches verschiedene Aufgaben zur Elektronik zur Verfügung stellt.
+Autor: Lennard Zimmermann, Sascha Zumstein
 Firma: FHGR
-Version: 0.1
-Datum: 4.12.2023
+Version: 1.0
+Datum: 18.12.2023
 Änderungen: 
-1.0_4.12.2023 Erste Version 
+1.0_18.12.2023 Erste Version 
 */
 
 // Einbinden von Headerdateien der Programmbibliothek.
@@ -22,10 +22,10 @@ Datum: 4.12.2023
 
 // Funktionsprototypen
 void eingabe(int *thema, int *schwierigkeit);
-float ohmschesGesetz(int *schwierigkeit, float *loesung);
-float kondensator(int *schwierigkeit, float *loesung);
-float spule(int *schwierigkeit, float *loesung);
-float diode(int *schwierigkeit, float *loesung);
+void ohmschesGesetz(int *schwierigkeit, float *loesung, float *musterloesung);
+void kondensator(int *schwierigkeit, float *loesung, float *musterloesung);
+void spule(int *schwierigkeit, float *loesung, float *musterloesung);
+void diode(int *schwierigkeit, float *loesung, float *musterloesung);
 float eingabeLoesung();
 
 // Hier steht das Hauptprogramm dieser Funktion
@@ -53,16 +53,16 @@ void elektronikAufgaben()
 			// Auswahl des Thema
 			switch(thema) {
 				case 1: 	// Aufgaben zum Ohmschen Gesetz
-							musterloesung = ohmschesGesetz(&schwierigkeit, &loesung);
+							ohmschesGesetz(&schwierigkeit, &loesung, &musterloesung);
 							break;
 				case 2: 	// Aufgaben zum Kondensator
-							musterloesung = kondensator(&schwierigkeit, &loesung);
+							kondensator(&schwierigkeit, &loesung, &musterloesung);
 							break;
 				case 3: 	// Aufgaben zur Spule
-							musterloesung = spule(&schwierigkeit, &loesung);
+							spule(&schwierigkeit, &loesung, &musterloesung);
 							break;
 				case 4: 	// Aufgaben zu Dioden
-							musterloesung = diode(&schwierigkeit, &loesung);
+							diode(&schwierigkeit, &loesung, &musterloesung);
 							break;
 				default: 	printf("Du hast eine falsche Eingabe für das Thema gemacht.\n");
 							break;
@@ -132,88 +132,81 @@ void eingabe(int *thema, int *schwierigkeit)
 }
 
 // Aufgaben für Ohmsches Gesetz
-float ohmschesGesetz(int *schwierigkeit, float *loesung){
-	// Variablen definieren
-	float musterloesung;
-
+void ohmschesGesetz(int *schwierigkeit, float *loesung, float *musterloesung){
 	if((*schwierigkeit) == 1) {
-		printf("Ohmsches Gesetz mit Schwierigkeit 1\n");
-		musterloesung = 11;
+		printf("Sie haben 2 parallel geschaltene Widerstände mit R1=R2= 120ohm. \n ");
+    	printf("Wie gross ist die Spannung in Volt, wenn ein Gesamtstrom von 120mA fliesst?\n");
+		*musterloesung = 60;
 	}
 	else if((*schwierigkeit) == 2) {
-		printf("Ohmsches Gesetz mit Schwierigkeit 2\n");
-		musterloesung = 12;
+		printf("R1 ist parallel mir R2, R3 ist parallel mit R4. Die Parallelschaltungen sind in Serie geschaltet.\n");
+    	printf("R1 = 50 Ohm\t R2 = 150 Ohm\t R3 = 1 kOhm\t R4 = 50 Ohm\n");
+    	printf("Wie gross ist der Gesamtwiderstand in Ohm auf zwei Komastellen gerundet?\n");
+		*musterloesung = 85.12;
 	}
 	else if((*schwierigkeit) == 3){
-		printf("Ohmsches Gesetz mit Schwierigkeit 3\n");
-		musterloesung = 13;
+		printf("R1 und R3 sind in Serie geschaltet. Ebenso sind R2 und R4 Seriell"\n);
+    	printf("R1 und R3 sind parallel zu R2 und R4 geschalten\n");
+    	printf("R1 = 150 Ohm\t R2 = 1 kOhm\t R3 = 2.35 kOhm R4 = 1.5 kOhm\n");
+   		printf("Wie gross ist der Gesamtwiderstand dieser Konfiguration in kOhm?\n");
+		*musterloesung = 1.25;
 	}
 	*loesung = eingabeLoesung();
-	return musterloesung;
 }
 
 // Aufgaben für Kondensator
-float kondensator(int *schwierigkeit, float *loesung){
-	// Variablen definieren
-	float musterloesung;
-
+void kondensator(int *schwierigkeit, float *loesung, float *musterloesung){
 	if((*schwierigkeit) == 1) {
 		printf("Kondensator mit Schwierigkeit 1\n");
-		musterloesung = 21;
+		*musterloesung = 21;
 	}
 	else if((*schwierigkeit) == 2) {
 		printf("Kondensator mit Schwierigkeit 2\n");
-		musterloesung = 22;
+		*musterloesung = 22;
 	}
 	else if((*schwierigkeit) == 3){
 		printf("Kondensator mit Schwierigkeit 3\n");
-		musterloesung = 23;
+		*musterloesung = 23;
 	}
 	*loesung = eingabeLoesung();
-	return musterloesung;
 }
 
 // Aufgaben für Spulen
-float spule(int *schwierigkeit, float *loesung){
-	// Variablen definieren
-	float musterloesung;
-
+void spule(int *schwierigkeit, float *loesung, float *musterloesung){
 	if((*schwierigkeit) == 1) {
 		printf("Spule mit Schwierigkeit 1\n");
-		musterloesung = 31;
+		*musterloesung = 31;
 	}
 	else if((*schwierigkeit) == 2) {
 		printf("Spule mit Schwierigkeit 2\n");
-		musterloesung = 32;
+		*musterloesung = 32;
 	}
 	else if((*schwierigkeit) == 3){
 		printf("Spule mit Schwierigkeit 3\n");
-		musterloesung = 33;
+		*musterloesung = 33;
 	}
 	*loesung = eingabeLoesung();
-	return musterloesung;
 }
 
 // Aufgaben für Dioden
-float diode(int *schwierigkeit, float *loesung){
-	// Variablen definieren
-	float musterloesung;
-
+void diode(int *schwierigkeit, float *loesung, float *musterloesung){
 	if((*schwierigkeit) == 1) {
-		printf("Diode mit Schwierigkeit 1\n");
-		musterloesung = 41;
+		 printf("Wie gross ist die Spannung in Volt, ab der eine Silizium-Halbleiterdiode in Durchlassichtung leitet?\n ");
+		*musterloesung = 0.7;
 	}
 	else if((*schwierigkeit) == 2) {
-		printf("Diode mit Schwierigkeit 2\n");
-		musterloesung = 42;
+		printf("Wie entsteht die Sperrschicht in einer Diode?\n");
+    	printf("1) Es wird eine Spannung von 0.7V angelegt.\n\n");
+   		printf("2) Die Löcher und Elektronen kommen sich sehr nahe und neutralisieren sich.\n\n");
+    	printf("3) Löcher werden von der Anode und Elektronen von der Kathode angezogen.\ndadurch entsteht dazwischen ein grosser Freiraum.\n");
+		*musterloesung = 3;
 	}
 	else if((*schwierigkeit) == 3){
 		printf("Diode mit Schwierigkeit 3\n");
-		musterloesung = 43;
+		*musterloesung = 43;
 	}
 	// Eingabe der Lösung
 	*loesung = eingabeLoesung();
-	return musterloesung;
 }
 
 // Eingabe der Lösung

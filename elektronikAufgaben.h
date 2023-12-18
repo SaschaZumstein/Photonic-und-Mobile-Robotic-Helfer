@@ -1,11 +1,11 @@
-/* elektronikAufgaben.h
-Das Programm soll ein Helfer fuer Photonics und Mobile Robotics Studenten sein.
-Autor: _________, __________
+/* elektronikAufgaben.c
+Ein Programm welches verschiedene Aufgaben zur Elektronik zur Verfügung stellt.
+Autor: Lennard Zimmermann, Sascha Zumstein
 Firma: FHGR
-Version: 0.1
-Datum: 4.12.2023
+Version: 1.0
+Datum: 18.12.2023
 Änderungen: 
-1.0_4.12.2023 Erste Version 
+1.0_18.12.2023 Erste Version 
 */
 
 void elektronikAufgaben(void);
