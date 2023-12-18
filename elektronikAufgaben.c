@@ -71,7 +71,7 @@ void elektronikAufgaben()
 
 			// Lösung korrekt
 			if(loesung == musterloesung){
-				printf("Bravo, die eingegebene Loesung %f ist korrekt\n\n", loesung);
+				printf("\nBravo, die eingegebene Loesung %f ist korrekt\n\n", loesung);
 				// Lösungsweg anzeigen
 				loesungsweg(&thema, &schwierigkeit);
 			}
