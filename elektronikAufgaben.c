@@ -27,6 +27,7 @@ void kondensator(int *schwierigkeit, float *loesung, float *musterloesung);
 void spule(int *schwierigkeit, float *loesung, float *musterloesung);
 void diode(int *schwierigkeit, float *loesung, float *musterloesung);
 float eingabeLoesung();
+void loesungsweg(int *thema, int *schwierigkeit);
 
 // Hier steht das Hauptprogramm dieser Funktion
 void elektronikAufgaben()
@@ -71,6 +72,7 @@ void elektronikAufgaben()
 			// Lösung korrekt
 			if(loesung == musterloesung){
 				printf("Bravo, die eingegebene Loesung %f ist korrekt\n", loesung);
+				loesungsweg(&thema, &schwierigkeit);
 			}
 			// Loesung falsch
 			else {
@@ -80,7 +82,7 @@ void elektronikAufgaben()
 				fflush(stdin);
 				// Musterlösung ausgeben
 				if(tryAgain != 1) {
-					printf("Die korrekte Loesung ist: %f\n", musterloesung);
+					loesungsweg(&thema, &schwierigkeit);
 					printf("Die eingegebene Loesung ist: %f\n", loesung);
 				}
 				else {
@@ -139,15 +141,15 @@ void ohmschesGesetz(int *schwierigkeit, float *loesung, float *musterloesung){
 		*musterloesung = 7.2;
 	}
 	else if((*schwierigkeit) == 2) {
-		printf("R1 ist parallel mir R2, R3 ist parallel mit R4. Die Parallelschaltungen sind in Serie geschaltet.\n");
+		printf("R1 ist parallel mit R2, R3 ist parallel mit R4. Die Parallelschaltungen sind in Serie geschaltet.\n");
     	printf("R1 = 50 Ohm\t R2 = 150 Ohm\t R3 = 1 kOhm\t R4 = 50 Ohm\n");
     	printf("Wie gross ist der Gesamtwiderstand in Ohm auf zwei Komastellen gerundet?\n");
-		*musterloesung = 85.12;
+		*musterloesung = 85.120000;
 	}
 	else if((*schwierigkeit) == 3){
 		printf("R1 und R3 sind in Serie geschaltet. Ebenso sind R2 und R4 Seriell\n");
     	printf("R1 und R3 sind parallel zu R2 und R4 geschalten\n");
-    	printf("R1 = 150 Ohm\t R2 = 1 kOhm\t R3 = 2.35 kOhm R4 = 1.5 kOhm\n");
+    	printf("R1 = 150 Ohm\t R2 = 1 kOhm\t R3 = 2.35 kOhm\t R4 = 1.5 kOhm\n");
    		printf("Wie gross ist der Gesamtwiderstand dieser Konfiguration in kOhm?\n");
 		*musterloesung = 1.25;
 	}
@@ -224,4 +226,58 @@ float eingabeLoesung(){
 		}
 	}
 	return loesung;
+}
+
+void loesungsweg(int *thema, int *schwierigkeit){
+	switch (*thema) {
+		case 1: 	if((*schwierigkeit) == 1) {
+ 						printf("Um den Gesamtwiderstand aus R1 und R2 zu berechnen gilt: 1/R = (1/R1) + (1/R2).\n");
+    					printf("Da R1=R2 ist, gilt R= R1/2. Somit gilt: R = 120Ohm/2 = 60Ohm.\n ");
+   						printf("Nach dem Ohmschen Gesetz gilt: U= R * I = 60Ohm * 0.12A = 7.2V\n");
+					}
+					else if((*schwierigkeit) == 2){
+						printf("Die korrekte Formel lautet: R = (R1*R2)/(R1+R2) + (R3*R4)/(R3+R4)\n");
+    					printf("Der Gesamtwiderstand der Schaltung beträgt somit 85.12 Ohm\n");
+					}
+					else if((*schwierigkeit) == 3){
+						printf("Da R1 und R3, sowie R2 und R4 jeweils Parallel geschalten sind gilt:\n");
+    					printf("(R1+R3)*(R2+R4) / (R1+R2+R3+R4)\n");
+    					printf("Da R1+R3 = R2+R4 ist, halbiert sich der Gesamtwiderstand und ergibt 1.25kOhm\n");
+					}
+					break;
+		case 2: 	if((*schwierigkeit) == 1) {
+
+					}
+					else if((*schwierigkeit) == 2){
+
+					}
+					else if((*schwierigkeit) == 3){
+						
+					}
+					break;
+		case 3: 	if((*schwierigkeit) == 1) {
+
+					}
+					else if((*schwierigkeit) == 2){
+
+					}
+					else if((*schwierigkeit) == 3){
+						
+					}
+					break;
+		case 4: 	if((*schwierigkeit) == 1) {
+						printf("Die Spannung beträgt ca 0.7V\n");
+					}
+					else if((*schwierigkeit) == 2){
+						printf("1) ist Falsch, da die angelegte Spannung die Sperrschicht nicht erzeugt.\n");
+    					printf("3) ist falsch, da Elektronen von der Kathode (negativ geladen) angezogen werden und in Richtung Anode (positiv geladen) fliessen,\n");
+            			printf("Löcher (positive Ladungsträger, die durch Elektronenmangel entstehen) werden von der Anode angezogen und fließen in Richtung Kathode.\n");
+					}
+					else if((*schwierigkeit) == 3){
+						
+					}
+					break;
+		default: 	printf("Du hast eine falsche Eingabe für das Thema gemacht.\n");
+					break;
+	}
 }
