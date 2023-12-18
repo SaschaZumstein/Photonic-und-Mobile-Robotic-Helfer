@@ -145,7 +145,7 @@ void ohmschesGesetz(int *schwierigkeit, float *loesung, float *musterloesung){
 		*musterloesung = 85.12;
 	}
 	else if((*schwierigkeit) == 3){
-		printf("R1 und R3 sind in Serie geschaltet. Ebenso sind R2 und R4 Seriell"\n);
+		printf("R1 und R3 sind in Serie geschaltet. Ebenso sind R2 und R4 Seriell\n");
     	printf("R1 und R3 sind parallel zu R2 und R4 geschalten\n");
     	printf("R1 = 150 Ohm\t R2 = 1 kOhm\t R3 = 2.35 kOhm R4 = 1.5 kOhm\n");
    		printf("Wie gross ist der Gesamtwiderstand dieser Konfiguration in kOhm?\n");
